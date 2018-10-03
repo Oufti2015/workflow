@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///C:/zt974/git/repo_perso/SSTWorkflow/SSTWorkflow.xsd">
+	<task id="A" entry="true">
+		<jobs>
+			<job sequence="1" class="sst.workflow.jobs.jobA1"/>
+			<job sequence="2" class="sst.workflow.jobs.jobA2"/>
+			<job sequence="3" class="sst.workflow.jobs.jobA3"/>
+		</jobs>
+	</task>
+	<task id="B">
+		<dependencies>
+			<dependency dependsOn="A"/>
+		</dependencies>
+		<jobs>
+			<job sequence="1" class="sst.workflow.jobs.jobB1"/>
+			<job sequence="2" class="sst.workflow.jobs.jobB2"/>
+		</jobs>
+	</task>
+	<task id="C">
+		<dependencies>
+			<dependency dependsOn="B"/>
+		</dependencies>
+		<jobs>
+			<job sequence="1" class="sst.workflow.jobs.jobC1"/>
+		</jobs>
+	</task>
+	<task id="D">
+		<dependencies>
+			<dependency dependsOn="B"/>
+		</dependencies>
+		<jobs>
+			<job sequence="1" class="sst.workflow.jobs.jobD1"/>
+		</jobs>
+	</task>
+	<task id="E">
+		<dependencies>
+			<dependency dependsOn="B"/>
+		</dependencies>
+		<jobs>
+			<job sequence="1" class="sst.workflow.jobs.jobE1"/>
+		</jobs>
+	</task>
+	<task id="F">
+		<dependencies>
+			<dependency dependsOn="D"/>
+			<dependency dependsOn="E"/>
+		</dependencies>
+		<jobs>
+			<job sequence="1" class="sst.workflow.jobs.jobF1"/>
+		</jobs>
+	</task>
+	<task id="G">
+		<dependencies>
+			<dependency dependsOn="C"/>
+		</dependencies>
+		<jobs>
+			<job sequence="1" class="sst.workflow.jobs.jobG1"/>
+			<job sequence="1" class="sst.workflow.jobs.jobG2"/>
+		</jobs>
+	</task>
+	<task id="H" exit="true">
+		<dependencies>
+			<dependency dependsOn="F"/>
+			<dependency dependsOn="G"/>
+		</dependencies>
+		<jobs>
+			<job sequence="1" class="sst.workflow.jobs.jobH1"/>
+		</jobs>
+	</task>
+</workflow>
