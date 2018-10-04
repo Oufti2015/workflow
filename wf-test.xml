@@ -2,9 +2,9 @@
 <workflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///C:/zt974/git/repo_perso/SSTWorkflow/SSTWorkflow.xsd">
 	<task id="A" entry="true">
 		<jobs>
-			<job sequence="1" class="sst.workflow.jobs.jobA1"/>
-			<job sequence="2" class="sst.workflow.jobs.jobA2"/>
-			<job sequence="3" class="sst.workflow.jobs.jobA3"/>
+			<job sequence="1" class="workflow.jobs.JobsA1"/>
+			<job sequence="2" class="workflow.jobs.JobsA2"/>
+			<job sequence="3" class="workflow.jobs.JobsA3"/>
 		</jobs>
 	</task>
 	<task id="B">
@@ -12,8 +12,8 @@
 			<dependency dependsOn="A"/>
 		</dependencies>
 		<jobs>
-			<job sequence="1" class="sst.workflow.jobs.jobB1"/>
-			<job sequence="2" class="sst.workflow.jobs.jobB2"/>
+			<job sequence="1" class="workflow.jobs.JobsB1"/>
+			<job sequence="2" class="workflow.jobs.JobsB2"/>
 		</jobs>
 	</task>
 	<task id="C">
@@ -21,7 +21,7 @@
 			<dependency dependsOn="B"/>
 		</dependencies>
 		<jobs>
-			<job sequence="1" class="sst.workflow.jobs.jobC1"/>
+			<job sequence="1" class="workflow.jobs.JobsC1"/>
 		</jobs>
 	</task>
 	<task id="D">
@@ -29,7 +29,7 @@
 			<dependency dependsOn="B"/>
 		</dependencies>
 		<jobs>
-			<job sequence="1" class="sst.workflow.jobs.jobD1"/>
+			<job sequence="1" class="workflow.jobs.JobsD1"/>
 		</jobs>
 	</task>
 	<task id="E">
@@ -37,7 +37,7 @@
 			<dependency dependsOn="B"/>
 		</dependencies>
 		<jobs>
-			<job sequence="1" class="sst.workflow.jobs.jobE1"/>
+			<job sequence="1" class="workflow.jobs.JobsE1"/>
 		</jobs>
 	</task>
 	<task id="F">
@@ -46,7 +46,7 @@
 			<dependency dependsOn="E"/>
 		</dependencies>
 		<jobs>
-			<job sequence="1" class="sst.workflow.jobs.jobF1"/>
+			<job sequence="1" class="workflow.jobs.JobsF1"/>
 		</jobs>
 	</task>
 	<task id="G">
@@ -54,8 +54,8 @@
 			<dependency dependsOn="C"/>
 		</dependencies>
 		<jobs>
-			<job sequence="1" class="sst.workflow.jobs.jobG1"/>
-			<job sequence="1" class="sst.workflow.jobs.jobG2"/>
+			<job sequence="1" class="workflow.jobs.JobsG1"/>
+			<job sequence="1" class="workflow.jobs.JobsG2"/>
 		</jobs>
 	</task>
 	<task id="H" exit="true">
@@ -64,7 +64,7 @@
 			<dependency dependsOn="G"/>
 		</dependencies>
 		<jobs>
-			<job sequence="1" class="sst.workflow.jobs.jobH1"/>
+			<job sequence="1" class="workflow.jobs.JobsH1"/>
 		</jobs>
 	</task>
 </workflow>

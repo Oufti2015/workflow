@@ -18,6 +18,31 @@
                         <target>1.8</target>
                     </configuration>
                 </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>jaxb2-maven-plugin</artifactId>
+                    <version>2.2</version>
+                    <executions>
+                        <execution>
+                            <id>xjc</id>
+                            <goals>
+                                <goal>xjc</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <!-- Set the package of the generated code -->
+                        <packageName>workflow.schema</packageName>
+
+                        <!-- Indicate that we should use DTD input instead of XSDs -->
+                        <sourceType>xsd</sourceType>
+
+                        <!-- Define the directory where we should find the DTD files -->
+                        <sources>
+                            <source>src/main/xsd/SSTWorkflow.xsd</source>
+                        </sources>
+                    </configuration>
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
