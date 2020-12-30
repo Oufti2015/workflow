@@ -26,13 +26,8 @@ public class WorkflowBuilder {
         WorkflowModel result = new WorkflowModel();
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(workflow.schema.Workflow.class);
-
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-
             workflow.schema.Workflow workflow = (workflow.schema.Workflow) jaxbUnmarshaller.unmarshal(file);
-
-//            System.out.println(workflow);
-
             extracttasks(workflow, result);
         } catch (JAXBException j) {
             throw new XMLFileException("Parsing error", j);
@@ -82,9 +77,8 @@ public class WorkflowBuilder {
 
         for (Job job : task.getJobs().getJob()) {
             try {
-                Class cls = Class.forName(job.getClazz());
-                IJob iJob = (IJob) cls.newInstance();
-                newTask.getJobs().add(new JobModel(job.getSequence(), iJob));
+                Class<IJob> cls = (Class<IJob>) Class.forName(job.getClazz());
+                newTask.getJobs().add(new JobModel(job.getSequence(), cls.newInstance()));
             } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
                 throw new XMLFileException("Cannot create instance of " + job.getClazz(), e);
             }

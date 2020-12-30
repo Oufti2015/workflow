@@ -13,13 +13,16 @@ public class TaskModel implements ITask {
     private List<JobModel> jobs = new ArrayList<>();
     private List<TaskModel> predecessors = new ArrayList<>();
     private List<TaskModel> successors = new ArrayList<>();
-    private boolean first = false, last = false;
+    private boolean first = false;
+    private boolean last = false;
     private List<Object> input = new ArrayList<>();
     private List<Object> output = new ArrayList<>();
 
     @Override
     public String toString() {
-        return "Task(" + getId() + ", pred=[" + String.join(",", predecessors.stream().map(p -> p.getId()).collect(Collectors.toList())) + "], succ=[" + String.join(",", successors.stream().map(p -> p.getId()).collect(Collectors.toList())) + "])";
+        return "Task(" + getId() + ", pred=["
+                + predecessors.stream().map(TaskModel::getId).collect(Collectors.joining(",")) + "], succ=["
+                + successors.stream().map(TaskModel::getId).collect(Collectors.joining(",")) + "])";
     }
 
     @Override
